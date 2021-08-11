@@ -1,0 +1,44 @@
+mixin card(numRoom, costRoom, feetBackRoom, isLux, stars)
+    .card
+        .card__img-cont
+            img#card__img-1.card__img.card__img_w(src='../img/card/image_1.svg')
+            img#card__img-2.card__img(src='../img/card/image_2.svg')
+            img#card__img-3.card__img(src='../img/card/image_3.svg')
+            img#card__img-4.card__img(src='../img/card/image_4.svg')
+            span.card__arrow.card__arrow_back.icon-expand
+            span.card__arrow.card__arrow_forward.icon-expand
+            .card__switchers
+                .card__switcher
+                    input#pic1.card__switcher-box(type='radio' name='pic' checked='')
+                    label.card__switcher-body(for='pic1')
+                .card__switcher
+                    input#pic2.card__switcher-box(type='radio' name='pic')
+                    label.card__switcher-body(for='pic2')
+                .card__switcher
+                    input#pic3.card__switcher-box(type='radio' name='pic')
+                    label.card__switcher-body(for='pic3')
+                .card__switcher
+                    input#pic4.card__switcher-box(type='radio' name='pic')
+                    label.card__switcher-body(for='pic4')
+        .card__info
+            .card__container
+                .card__header
+                    .card__room-inf
+                        div №&nbsp;
+                        .card__num-room #{numRoom}&nbsp;
+                        - var lux = isLux ? '' : 'opacity: 0;';
+                        .card__room-type(style=lux) люкс
+                        .card__room-cost-inf
+                    .card__room-cost #{costRoom}&#8381; в сутки
+                hr
+                .card__footer
+                    .card__stars
+                        - var star = 0;   
+                        while (star < 5)
+                            if star < stars
+                                .card__star.icon-full_star
+                            else 
+                                .card__star.icon-void_star
+                            - star++
+                    .card__comments
+                        .card__comments-num #{feetBackRoom} Отзывов
