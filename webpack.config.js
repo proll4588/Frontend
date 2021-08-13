@@ -12,7 +12,7 @@ module.exports = {
         app: "./index.js",
     },
     output: {
-        filename: "js/[name].js",
+        filename: "[name].js",
         path: path.resolve(__dirname, "dist"),
     },
     plugins: [
@@ -22,7 +22,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: "index.pug",
-            filename: "pages/index.html",
+            filename: "index.html",
             minify: false,
         }),
         new HtmlWebpackPugPlugin(),
@@ -54,5 +54,11 @@ module.exports = {
                 use: [{ loader: "pug-loader" }],
             },
         ],
+    },
+    devServer: {
+        port: 4200,
+        contentBase: path.resolve(__dirname, "dist"),
+        overlay: true,
+        open: true,
     },
 };
