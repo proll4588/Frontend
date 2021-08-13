@@ -7,40 +7,43 @@ const arrow_right = document.querySelector(".card__arrow_forward");
 const radio = document.querySelectorAll(".card__switcher-box");
 const img = document.querySelectorAll(".card__img");
 
-console.log(radio);
-console.log(pos);
-
 //Обрабтка событий при нажатии на рабиокнопку
-radio.forEach((el) => {
-    el.addEventListener("click", (e) => {
-        toggleImg(pos);
-        pos = findPos();
-        toggleImg(pos);
+if (radio) {
+    radio.forEach((el) => {
+        el.addEventListener("click", (e) => {
+            toggleImg(pos);
+            pos = findPos();
+            toggleImg(pos);
+        });
     });
-});
+}
 
 //Обрабтка событий при нажатии на стрелки
-arrow_right.addEventListener("click", (e) => {
-    toggleImg(pos);
-    if (pos < maxPos) {
-        pos++;
-    } else {
-        pos = 1;
-    }
-    setRadio(pos);
-    toggleImg(pos);
-});
+if (arrow_right) {
+    arrow_right.addEventListener("click", (e) => {
+        toggleImg(pos);
+        if (pos < maxPos) {
+            pos++;
+        } else {
+            pos = 1;
+        }
+        setRadio(pos);
+        toggleImg(pos);
+    });
+}
 
-arrow_left.addEventListener("click", (e) => {
-    toggleImg(pos);
-    if (pos > 1) {
-        pos--;
-    } else {
-        pos = 4;
-    }
-    setRadio(pos);
-    toggleImg(pos);
-});
+if (arrow_left) {
+    arrow_left.addEventListener("click", (e) => {
+        toggleImg(pos);
+        if (pos > 1) {
+            pos--;
+        } else {
+            pos = 4;
+        }
+        setRadio(pos);
+        toggleImg(pos);
+    });
+}
 
 //Отмечает заднную радиокнопку
 function setRadio(num) {
