@@ -1,13 +1,11 @@
 // ========================== //
-var pos = 0;
+var pos = 1;
 var maxPos = 4;
 
 const arrow_left = document.querySelector(".card__arrow_back");
 const arrow_right = document.querySelector(".card__arrow_forward");
 const radio = document.querySelectorAll(".card__switcher-box");
 const img = document.querySelectorAll(".card__img");
-
-pos = findPos();
 
 console.log(radio);
 console.log(pos);

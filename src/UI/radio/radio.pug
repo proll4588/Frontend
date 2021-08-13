@@ -1,0 +1,9 @@
+mixin radio(name, num, labels)
+    - var i = 0;
+    while i < num 
+        - i++;
+        .radio
+            .radio__box
+                input.radio__input(type='radio' name=`${name}` id=`${name}_${i}`)
+                label.radio__body(for=`${name}_${i}`)
+            label.radio__text(for=`${name}_${i}`) #{labels[i-1]}
