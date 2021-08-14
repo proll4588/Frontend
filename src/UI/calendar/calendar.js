@@ -23,37 +23,40 @@ const btnDown = document.querySelector(".date-dropdown__icon");
 const calendar = document.querySelector(".calendar");
 const inputBox = document.querySelector(".date-dropdown__input");
 
-var days;
-
-var today = new Date();
-var firstday = new Date();
-var date = new Date();
-
+var displayedDate = new Date();
+var selectedDate = new Date();
 var curentDate = new Date();
+
 var is_curent_month = true;
 
+var firstDayOfWeek = 0;
 var last = 0;
-var firstdayday;
 
 function setUp() {
-    updateDates(today.getMonth(), today.getFullYear());
+    updateDates(displayedDate.getMonth(), displayedDate.getFullYear());
 
     if (btnBack) {
         btnBack.addEventListener("click", (e) => {
-            if (today.getMonth() == 0) {
-                updateDates(11, today.getFullYear() - 1);
+            if (displayedDate.getMonth() == 0) {
+                updateDates(11, displayedDate.getFullYear() - 1);
             } else {
-                updateDates(today.getMonth() - 1, today.getFullYear());
+                updateDates(
+                    displayedDate.getMonth() - 1,
+                    displayedDate.getFullYear()
+                );
             }
         });
     }
 
     if (btnNext) {
         btnNext.addEventListener("click", (e) => {
-            if (today.getMonth() == 11) {
-                updateDates(0, today.getFullYear() + 1);
+            if (displayedDate.getMonth() == 11) {
+                updateDates(0, displayedDate.getFullYear() + 1);
             } else {
-                updateDates(today.getMonth() + 1, today.getFullYear());
+                updateDates(
+                    displayedDate.getMonth() + 1,
+                    displayedDate.getFullYear()
+                );
             }
         });
     }
@@ -75,29 +78,21 @@ function setUp() {
 }
 
 function updateDates(month, year) {
-    date.setFullYear(year);
-
-    today.setMonth(month);
-    today.setFullYear(year);
-
-    firstday.setMonth(month);
-    firstday.setFullYear(year);
+    displayedDate.setMonth(month);
+    displayedDate.setFullYear(year);
 
     if (
-        month != curentDate.getMonth() ||
-        today.getFullYear() != curentDate.getFullYear()
-    ) {
-        is_curent_month = false;
-    } else {
+        displayedDate.getMonth() == curentDate.getMonth() &&
+        displayedDate.getFullYear() == curentDate.getFullYear()
+    )
         is_curent_month = true;
-    }
+    else is_curent_month = false;
 
-    firstday.setDate(1);
+    firstDayOfWeek = new Date(year, month, 1).getDay();
+    if (firstDayOfWeek == 0) firstDayOfWeek = 7;
 
-    firstdayday = firstday.getDay();
-    if (firstday.getDay() == 0) firstdayday = 7;
-
-    monthStr.innerHTML = monthInf[month].name + " " + today.getFullYear();
+    monthStr.innerHTML =
+        monthInf[month].name + " " + displayedDate.getFullYear();
 
     monthInf[1].day = new Date(year, 2, 0).getDate();
 
@@ -111,25 +106,26 @@ function getWeeks(year, month) {
 
 function drawCal() {
     table.innerHTML = "";
-    var row = getWeeks(today.getFullYear(), today.getMonth()) + 1;
+    var row =
+        getWeeks(displayedDate.getFullYear(), displayedDate.getMonth()) + 1;
     var colom = 7;
     var k;
-    if (today.getMonth() == 0) {
-        k = monthInf[11].day - firstdayday + 1;
-    } else k = monthInf[today.getMonth() - 1].day - firstdayday + 1;
+    if (displayedDate.getMonth() == 0) {
+        k = monthInf[11].day - firstDayOfWeek + 1;
+    } else k = monthInf[displayedDate.getMonth() - 1].day - firstDayOfWeek + 1;
     var isThisMonth = false;
 
     for (var i = 0; i < row; i++) {
         var tr = document.createElement("tr");
 
         for (var j = 0; j < colom; j++) {
-            if (i != 0 && (i - 1) * 7 + j + 1 == firstdayday) {
+            if (i != 0 && (i - 1) * 7 + j + 1 == firstDayOfWeek) {
                 k = 0;
                 isThisMonth = true;
             }
 
-            if (i != 0 && (i - 1) * 7 + j + 1 > firstdayday) {
-                if (k + 1 <= monthInf[today.getMonth()].day) {
+            if (i != 0 && (i - 1) * 7 + j + 1 > firstDayOfWeek) {
+                if (k + 1 <= monthInf[displayedDate.getMonth()].day) {
                     k++;
                 } else {
                     k = 1;
@@ -149,7 +145,11 @@ function drawCal() {
                 if (!isThisMonth) {
                     td.classList.add("calendar__not-this-week");
                 }
-                if (k == today.getDate() && isThisMonth && is_curent_month) {
+                if (
+                    k == displayedDate.getDate() &&
+                    isThisMonth &&
+                    is_curent_month
+                ) {
                     td.classList.add("calendar__this-day");
                 }
             }
@@ -159,15 +159,16 @@ function drawCal() {
 
         table.appendChild(tr);
     }
-    days = document.querySelectorAll(".calendar__day");
+    const days = document.querySelectorAll(".calendar__day");
     days.forEach((el) => {
         el.addEventListener("click", (e) => {
-            date.setDate(Number(el.textContent));
-            date.setMonth(today.getMonth());
+            selectedDate.setDate(Number(el.textContent));
+            selectedDate.setMonth(displayedDate.getMonth());
+            selectedDate.setFullYear(displayedDate.getFullYear());
             el.classList.toggle("calendar__set-day");
             if (last != 0) last.classList.toggle("calendar__set-day");
             last = el;
-            inputBox.value = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
+            inputBox.value = `${selectedDate.getDate()}.${selectedDate.getMonth()}.${selectedDate.getFullYear()}`;
         });
     });
 }
