@@ -1,0 +1,81 @@
+.btn {
+    @include set-font(normal, bold, 12px, 15px, white);
+    position: relative;
+
+    text-transform: uppercase;
+
+    border-radius: 22px;
+    border: 0;
+
+    height: 44px;
+
+    padding: 14px 19px 15px 18px;
+
+    cursor: pointer;
+
+    &_full {
+        background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+        color: white;
+
+        &-un {
+            opacity: 0.5;
+            cursor: auto;
+        }
+    }
+
+    &_void {
+        background: #fff;
+        color: #bc9cff;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            bottom: -2px;
+            left: -2px;
+            right: -2px;
+            background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+            border-radius: 26px;
+            z-index: -1;
+        }
+
+        &-un {
+            &::before {
+                opacity: 0.5;
+            }
+            cursor: auto;
+        }
+    }
+
+    &_unboard {
+        border-radius: 0;
+        background: white;
+        padding: 0;
+        height: 100%;
+        color: #bc9cff;
+
+        &-un {
+            color: #1f204180;
+            cursor: auto;
+        }
+    }
+
+    &_with-arrow {
+        position: relative;
+        width: 320px;
+        background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+
+        &::after {
+            position: absolute;
+            width: 44px;
+            height: 44px;
+            right: 0;
+            top: 0;
+            text-align: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+    }
+}
