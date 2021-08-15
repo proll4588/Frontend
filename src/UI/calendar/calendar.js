@@ -24,13 +24,12 @@ const calendar = document.querySelector(".calendar");
 const inputBox = document.querySelector(".date-dropdown__input");
 
 var displayedDate = new Date();
-var selectedDate = new Date();
+var selectedDate = { start: 0, end: 0 };
 var curentDate = new Date();
 
 var is_curent_month = true;
 
 var firstDayOfWeek = 0;
-var last = 0;
 
 function setUp() {
     updateDates(displayedDate.getMonth(), displayedDate.getFullYear());
@@ -69,10 +68,14 @@ function setUp() {
 
     if (clear) {
         clear.addEventListener("click", (e) => {
-            document
-                .querySelector(".calendar__set-day")
-                .classList.toggle("calendar__set-day");
-            last = 0;
+            document.querySelectorAll(".calendar__set-day").forEach((el) => {
+                el.classList.toggle("calendar__set-day");
+            });
+
+            selectedDate.start = 0;
+            selectedDate.end = 0;
+
+            drawCal();
         });
     }
 }
@@ -109,10 +112,12 @@ function drawCal() {
     var row =
         getWeeks(displayedDate.getFullYear(), displayedDate.getMonth()) + 1;
     var colom = 7;
+
     var k;
     if (displayedDate.getMonth() == 0) {
         k = monthInf[11].day - firstDayOfWeek + 1;
     } else k = monthInf[displayedDate.getMonth() - 1].day - firstDayOfWeek + 1;
+
     var isThisMonth = false;
 
     for (var i = 0; i < row; i++) {
@@ -152,6 +157,71 @@ function drawCal() {
                 ) {
                     td.classList.add("calendar__this-day");
                 }
+
+                //----------------------------------------//
+                //----Задание класса для выбранных дат----//
+                //----------------------------------------//
+                if (selectedDate.start != 0 && isThisMonth) {
+                    if (
+                        displayedDate.getFullYear() ==
+                            selectedDate.start.getFullYear() &&
+                        displayedDate.getMonth() ==
+                            selectedDate.start.getMonth() &&
+                        k == selectedDate.start.getDate()
+                    ) {
+                        td.id = "selectedFirstDay";
+                    }
+                }
+                if (selectedDate.end != 0 && isThisMonth) {
+                    if (
+                        displayedDate.getFullYear() ==
+                            selectedDate.end.getFullYear() &&
+                        displayedDate.getMonth() ==
+                            selectedDate.end.getMonth() &&
+                        k == selectedDate.end.getDate()
+                    ) {
+                        td.id = "selectedLastDay";
+                    }
+                }
+
+                if (
+                    selectedDate.start != 0 &&
+                    selectedDate.end != 0 &&
+                    isThisMonth &&
+                    (selectedDate.start.getMonth() ==
+                        displayedDate.getMonth() ||
+                        selectedDate.end.getMonth() ==
+                            displayedDate.getMonth()) &&
+                    (selectedDate.start.getFullYear() ==
+                        displayedDate.getFullYear() ||
+                        selectedDate.end.getFullYear() ==
+                            displayedDate.getFullYear())
+                ) {
+                    if (
+                        selectedDate.start.getMonth() ==
+                        selectedDate.end.getMonth()
+                    ) {
+                        if (
+                            k >= selectedDate.start.getDate() &&
+                            k <= selectedDate.end.getDate()
+                        ) {
+                            td.classList.add("calendar__set-day");
+                        }
+                    } else {
+                        if (
+                            (k >= selectedDate.start.getDate() &&
+                                selectedDate.start.getMonth() ==
+                                    displayedDate.getMonth()) ||
+                            (k <= selectedDate.end.getDate() &&
+                                selectedDate.end.getMonth() ==
+                                    displayedDate.getMonth())
+                        ) {
+                            td.classList.add("calendar__set-day");
+                        }
+                    }
+                }
+
+                //----------------------------------------//
             }
 
             tr.appendChild(td);
@@ -159,16 +229,79 @@ function drawCal() {
 
         table.appendChild(tr);
     }
+
+    setData();
+}
+
+function setData() {
     const days = document.querySelectorAll(".calendar__day");
+
     days.forEach((el) => {
         el.addEventListener("click", (e) => {
-            selectedDate.setDate(Number(el.textContent));
-            selectedDate.setMonth(displayedDate.getMonth());
-            selectedDate.setFullYear(displayedDate.getFullYear());
-            el.classList.toggle("calendar__set-day");
-            if (last != 0) last.classList.toggle("calendar__set-day");
-            last = el;
-            inputBox.value = `${selectedDate.getDate()}.${selectedDate.getMonth()}.${selectedDate.getFullYear()}`;
+            if (
+                (el.textContent >= curentDate.getDate() &&
+                    curentDate.getMonth() == displayedDate.getMonth()) ||
+                curentDate.getMonth() < displayedDate.getMonth()
+            )
+                if (selectedDate.start == 0) {
+                    selectedDate.start = new Date();
+
+                    selectedDate.start.setDate(Number(el.textContent));
+                    selectedDate.start.setMonth(displayedDate.getMonth());
+                    selectedDate.start.setFullYear(displayedDate.getFullYear());
+                } else if (selectedDate.start != 0 && selectedDate.end == 0) {
+                    if (
+                        selectedDate.start.getMonth() ==
+                        displayedDate.getMonth()
+                    ) {
+                        if (el.textContent > selectedDate.start.getDate()) {
+                            selectedDate.end = new Date();
+
+                            selectedDate.end.setDate(Number(el.textContent));
+                            selectedDate.end.setMonth(displayedDate.getMonth());
+                            selectedDate.end.setFullYear(
+                                displayedDate.getFullYear()
+                            );
+                        } else {
+                            selectedDate.end = new Date(selectedDate.start);
+
+                            selectedDate.start.setDate(Number(el.textContent));
+                            selectedDate.start.setMonth(
+                                displayedDate.getMonth()
+                            );
+                            selectedDate.start.setFullYear(
+                                displayedDate.getFullYear()
+                            );
+                        }
+                    } else {
+                        if (
+                            selectedDate.start.getMonth() <
+                            displayedDate.getMonth()
+                        ) {
+                            selectedDate.end = new Date();
+
+                            selectedDate.end.setDate(Number(el.textContent));
+                            selectedDate.end.setMonth(displayedDate.getMonth());
+                            selectedDate.end.setFullYear(
+                                displayedDate.getFullYear()
+                            );
+                        } else {
+                            selectedDate.end = new Date(selectedDate.start);
+
+                            selectedDate.start.setDate(Number(el.textContent));
+                            selectedDate.start.setMonth(
+                                displayedDate.getMonth()
+                            );
+                            selectedDate.start.setFullYear(
+                                displayedDate.getFullYear()
+                            );
+                        }
+                    }
+                }
+
+            drawCal();
+
+            // inputBox.value = `${selectedDate.getDate()}.${selectedDate.getMonth()}.${selectedDate.getFullYear()}`;
         });
     });
 }
