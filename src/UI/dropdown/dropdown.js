@@ -21,6 +21,7 @@ if (clean) {
         });
 
         toogleVis();
+        cond = 0;
         setName(0);
     });
 }
