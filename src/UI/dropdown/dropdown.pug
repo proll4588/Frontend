@@ -1,0 +1,31 @@
+include ../btn/btn.pug
+.dropdown
+  h3.dropdown__head Гости
+  input.dropdown__input(type='text' readonly='' value='Сколько гостей')
+  span.dropdown__icon.icon-expand
+  .dropdown__menu
+    .dropdown__menu-content
+      .dropdown__menu-case
+        h3.dropdown__menu-case-name Взрослые
+        .dropdown__menu-case-chois
+          button.dropdown__menu-btn.dropdown__menu-btn_light
+            | -
+          h3.dropdown__menu-num 0
+          button.dropdown__menu-btn +
+      .dropdown__menu-case
+        h3.dropdown__menu-case-name Дети
+        .dropdown__menu-case-chois
+          button.dropdown__menu-btn.dropdown__menu-btn_light
+            | -
+          h3.dropdown__menu-num 0
+          button.dropdown__menu-btn +
+      .dropdown__menu-case
+        h3.dropdown__menu-case-name Младенцы
+        .dropdown__menu-case-chois
+          button.dropdown__menu-btn.dropdown__menu-btn_light
+            | -
+          h3.dropdown__menu-num 0
+          button.dropdown__menu-btn +
+      .dropdown__menu-case
+        +btn("unboard", true, "Очистить", "dropdown__menu-color-btn-clean dropdown__btn-invis")
+        +btn("unboard", true, "Применить", "dropdown__menu-color-btn-enter")

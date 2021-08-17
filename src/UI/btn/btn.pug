@@ -1,9 +1,9 @@
 //- typr = [full, void, unboard, with-arrow]
-mixin btn(type="full", isClicked, text="Click me")
+mixin btn(type="full", isClicked, text="Click me", addClass="")
     if type == "with-arrow"
-        button(class = `btn btn_${type} icon-arrow`) #{text}
+        button(class = `btn btn_${type} icon-arrow ${addClass}`) #{text}
     else
         if isClicked
-            button(class = `btn btn_${type}`) #{text}
+            button(class = `btn btn_${type} ${addClass}`) #{text}
         else 
-            button(class = `btn btn_${type} btn_${type}-un`) #{text}
+            button(class = `btn btn_${type} btn_${type}-un ${addClass}`) #{text}
