@@ -1,0 +1,33 @@
+.masked-text-field {
+    position: relative;
+    &__head {
+        margin-bottom: 5px;
+    }
+
+    &__input {
+        width: 320px;
+        height: 44px;
+
+        padding-left: 15px;
+
+        background: #ffffff;
+        border: 1px solid rgba(31, 32, 65, 0.25);
+        box-sizing: border-box;
+        border-radius: 4px;
+
+        @include set-font(normal, normal, 16px, 18px, $dark75);
+
+        &::-webkit-input-placeholder {
+            color: rgba(31, 32, 65, 0.25);
+        }
+
+        &:hover {
+            border: 1px solid rgba(31, 32, 65, 0.5);
+        }
+
+        &:focus {
+            outline: none;
+            border: 1px solid rgba(31, 32, 65, 0.5);
+        }
+    }
+}
