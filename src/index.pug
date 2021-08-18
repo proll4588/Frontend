@@ -6,5 +6,6 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title 123
     body
-        include UI/subscription-text-field/subscription-text-field.pug
+        include UI/expandable-checkbox-list/expandable-checkbox-list.pug
+        +expandable-checkbox-list("head", ["Hello","My","Friends", "12345", "67890"])
         
