@@ -1,6 +1,6 @@
-mixin checkbox(name, text)
-    .checkbox
+mixin checkbox(addClass = "", text)
+    div(class = `checkbox ${addClass}`)
         label.checkbox__box
-            input.checkbox__input(type="checkbox" name=name)
+            input.checkbox__input(type="checkbox")
             span.checkbox__body
         lable.checkbox__text #{text}
