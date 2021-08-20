@@ -1,11 +1,13 @@
 .expandable-checkbox-list {
     position: relative;
     width: 266px;
+
     &__head {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
         align-items: center;
+        background: white;
     }
 
     &__icon {
@@ -22,6 +24,7 @@
         position: absolute;
         top: 30px;
         transition: 0.4s;
+        z-index: -1;
 
         &_invis {
             top: -100px;

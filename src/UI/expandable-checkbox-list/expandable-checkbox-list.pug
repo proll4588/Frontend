@@ -1,11 +1,11 @@
 include ../checkbox/checkbox.pug
-mixin expandable-checkbox-list(head, texts)
-    .expandable-checkbox-list
+mixin expandable-checkbox-list({addClass, head, texts})
+    div(class = `expandable-checkbox-list ${addClass}`)
         .expandable-checkbox-list__head
-            h3.expandable-checkbox-list__name head 
+            h3.expandable-checkbox-list__name #{head} 
             span.expandable-checkbox-list__icon.icon-expand 
         .expandable-checkbox-list__body.expandable-checkbox-list__body_invis
             - var i = 0;
             while i < texts.length
-                +checkbox("expandable-checkbox-list__checkbox", texts[i])
+                +checkbox({addClass: "expandable-checkbox-list__checkbox", text:texts[i]})
                 - i++;
