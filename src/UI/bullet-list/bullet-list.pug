@@ -1,0 +1,9 @@
+mixin bullet-list({addClass, data, headName})
+    div(class = `bullet-list ${addClass}`)
+        h3.bullet-list__head #{headName}
+        - var i = 0;
+        while i < data.length
+            .bullet-list__el
+                span.bullet-list__dot
+                .bullet-list__text #{data[i]}
+            - i++;

@@ -6,6 +6,5 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title 123
     body
-        include UI/expandable-checkbox-list/expandable-checkbox-list.pug
-        +expandable-checkbox-list("head", ["Hello","My","Friends", "12345", "67890"])
-        
+        include UI/bullet-list/bullet-list.pug
+        +bullet-list({addClass:"clas", data:["Время прибытия — после 13:00, а выезд до 12:00","456","789","Hello","World"], headName:"Bullt List"})
