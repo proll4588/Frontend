@@ -1,6 +1,11 @@
-mixin checkbox(addClass = "", text)
+mixin checkbox({addClass, text, type, title})
     div(class = `checkbox ${addClass}`)
         label.checkbox__box
             input.checkbox__input(type="checkbox")
             span.checkbox__body
-        lable.checkbox__text #{text}
+        .checkbox__content 
+            if type == "rich"
+                .checkbox__title #{title}
+                .checkbox__text.checkbox__text_rich #{text}
+            else 
+                .checkbox__text.checkbox__text_common #{text}

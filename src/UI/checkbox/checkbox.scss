@@ -1,13 +1,35 @@
 .checkbox {
-    display: flex;
-    align-items: center;
+    margin-bottom: 11px;
 
     &__box {
-        position: relative;
-        display: inline-block;
+        position: absolute;
+
         width: 20px;
         height: 20px;
+
         margin-right: 10px;
+    }
+
+    &__text {
+        &_rich {
+            @include set-font(normal, normal, 12px, 14px, $dark50);
+            width: 230px;
+        }
+
+        &_common {
+            @include set-font(normal, normal, 12px, 18px, $dark50);
+            width: 180px;
+        }
+    }
+
+    &__title {
+        @include set-font(normal, bold, 14px, 18px, $dark75);
+        width: 230px;
+    }
+
+    &__content {
+        margin-left: 30px;
+        padding-top: 1px;
     }
 
     &__input {
@@ -28,8 +50,8 @@
         border: 1px solid rgba(70, 72, 145, 0.25);
         border-radius: 4px;
 
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
+        -webkit-transition: border-color 0.4s;
+        transition: border-color 0.4s;
 
         cursor: pointer;
     }
@@ -40,12 +62,6 @@
         left: 3px;
         bottom: 3px;
         background: rgba(185, 187, 221, 0);
-
-        // -webkit-transition: 0.4s;
-        // transition: 0.4s;
-    }
-
-    &__input:checked + &__body:before {
     }
 
     &__input:checked + &__body {

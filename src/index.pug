@@ -6,5 +6,8 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title 123
     body
-        include UI/bullet-list/bullet-list.pug
-        +bullet-list({addClass:"clas", data:["Время прибытия — после 13:00, а выезд до 12:00","456","789","Hello","World"], headName:"Bullt List"})
+        include UI/checkbox/checkbox.pug
+        +checkbox({text:"Можно с питомцами"})
+        +checkbox({text:"Можно пригласить гостей (до 10 человек)"})
+        +checkbox({text:"Ширина коридоров в номере не менее 91 см.", title:"Широкий коридор", type: "rich"})
+        +checkbox({text:"На 1 этаже вас встретит специалист и проводит до номера.", title:"Помощник для инвалидов", type: "rich"})
