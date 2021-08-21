@@ -1,0 +1,7 @@
+mixin like-button({addClass, numOfLikes})
+    div(class = `like-button ${addClass}`)
+        label.like-button__box
+            input.like-button__input(type='checkbox')
+            span.like-button__body
+                span.like-button__like.icon-void_heart
+                span.like-button__like-num #{numOfLikes}
