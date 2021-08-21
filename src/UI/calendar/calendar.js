@@ -17,11 +17,13 @@ var monthInf = [
 const btnNext = document.querySelector(".calendar__btn-next");
 const btnBack = document.querySelector(".calendar__btn-back");
 const clear = document.querySelector(".calendar__btn-clear");
+const enter = document.querySelector(".calendar__btn-enter");
 const monthStr = document.querySelector(".calendar__month");
 const table = document.querySelector(".calendar__body");
-const btnDown = document.querySelector(".date-dropdown__icon");
+
 const calendar = document.querySelector(".calendar");
-const inputBox = document.querySelector(".date-dropdown__input");
+const calendar_body = document.querySelector(".date-dropdown__calendar");
+const inputBox = document.querySelectorAll(".date-dropdown__input");
 
 var displayedDate = new Date();
 var selectedDate = { start: 0, end: 0 };
@@ -60,9 +62,9 @@ function setUp() {
         });
     }
 
-    if (btnDown) {
-        btnDown.addEventListener("click", (e) => {
-            calendar.classList.toggle("date-dropdown__calendar_vis");
+    if (enter) {
+        enter.addEventListener("click", () => {
+            calendar_body.classList.toggle("date-dropdown__calendar_invis");
         });
     }
 
@@ -74,6 +76,9 @@ function setUp() {
 
             selectedDate.start = 0;
             selectedDate.end = 0;
+
+            inputBox[0].value = "";
+            inputBox[1].value = "";
 
             drawCal();
         });
@@ -301,6 +306,13 @@ function setData() {
 
             drawCal();
 
+            if (selectedDate.start != 0) {
+                inputBox[0].value = `${selectedDate.start.getDate()}.${selectedDate.start.getMonth()}.${selectedDate.start.getFullYear()}`;
+            }
+
+            if (selectedDate.end != 0) {
+                inputBox[1].value = `${selectedDate.end.getDate()}.${selectedDate.end.getMonth()}.${selectedDate.end.getFullYear()}`;
+            }
             // inputBox.value = `${selectedDate.getDate()}.${selectedDate.getMonth()}.${selectedDate.getFullYear()}`;
         });
     });

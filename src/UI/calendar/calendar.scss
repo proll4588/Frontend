@@ -11,6 +11,8 @@
     color: rgba(31, 32, 65, 0.5);
     font-size: 12px;
 
+    background: white;
+
     &__container {
         max-width: 280px;
         margin: 0 auto;
@@ -89,7 +91,7 @@
                 rgba($color: #bc9cff, $alpha: 0.25) 0%,
                 rgba($color: #8ba4f9, $alpha: 0.25) 100%
             );
-            z-index: -1;
+            z-index: 1;
         }
 
         &:last-child::after {

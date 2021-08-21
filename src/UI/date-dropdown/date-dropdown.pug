@@ -1,0 +1,12 @@
+.date-dropdown
+    .date-dropdown__part
+        h3.date-dropdown__head Прибытие
+        input.date-dropdown__input(placeholder = "ДД.ММ.ГГГГ", readonly="")
+        span.date-dropdown__arrow.icon-expand
+    .date-dropdown__part
+        h3.date-dropdown__head Выезд
+        input.date-dropdown__input(placeholder = "ДД.ММ.ГГГГ", readonly="")
+        span.date-dropdown__arrow.icon-expand
+    .date-dropdown__calendar.date-dropdown__calendar_invis
+        include ../calendar/calendar.pug
+        
