@@ -23,7 +23,8 @@ const table = document.querySelector(".calendar__body");
 
 const calendar = document.querySelector(".calendar");
 const calendar_body = document.querySelector(".date-dropdown__calendar");
-const inputBox = document.querySelectorAll(".date-dropdown__input");
+const inputBoxes = document.querySelectorAll(".date-dropdown__input");
+const inputBox = document.querySelector(".filter-date-dropdown__input");
 
 var displayedDate = new Date();
 var selectedDate = { start: 0, end: 0 };
@@ -77,8 +78,14 @@ function setUp() {
             selectedDate.start = 0;
             selectedDate.end = 0;
 
-            inputBox[0].value = "";
-            inputBox[1].value = "";
+            if (inputBoxes.length != 0) {
+                inputBoxes[0].value = "";
+                inputBoxes[1].value = "";
+            }
+
+            if (inputBox) {
+                inputBox.value = "";
+            }
 
             drawCal();
         });
@@ -306,14 +313,33 @@ function setData() {
 
             drawCal();
 
-            if (selectedDate.start != 0) {
-                inputBox[0].value = `${selectedDate.start.getDate()}.${selectedDate.start.getMonth()}.${selectedDate.start.getFullYear()}`;
+            if (inputBoxes.length != 0) {
+                if (selectedDate.start != 0) {
+                    inputBoxes[0].value = `${selectedDate.start.getDate()}.${selectedDate.start.getMonth()}.${selectedDate.start.getFullYear()}`;
+                }
+
+                if (selectedDate.end != 0) {
+                    inputBoxes[1].value = `${selectedDate.end.getDate()}.${selectedDate.end.getMonth()}.${selectedDate.end.getFullYear()}`;
+                }
             }
 
-            if (selectedDate.end != 0) {
-                inputBox[1].value = `${selectedDate.end.getDate()}.${selectedDate.end.getMonth()}.${selectedDate.end.getFullYear()}`;
+            if (inputBox) {
+                if (selectedDate.start != 0) {
+                    inputBox.value = `${selectedDate.start.getDate()} ${monthInf[
+                        selectedDate.start.getMonth()
+                    ].name
+                        .substring(0, 3)
+                        .toLowerCase()}`;
+                }
+                if (selectedDate.end != 0) {
+                    inputBox.value += ` - ${selectedDate.end.getDate()} ${monthInf[
+                        selectedDate.end.getMonth()
+                    ].name
+                        .substring(0, 3)
+                        .toLowerCase()} 
+                    `;
+                }
             }
-            // inputBox.value = `${selectedDate.getDate()}.${selectedDate.getMonth()}.${selectedDate.getFullYear()}`;
         });
     });
 }
