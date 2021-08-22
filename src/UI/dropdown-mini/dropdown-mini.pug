@@ -1,0 +1,28 @@
+include ../btn/btn.pug
+.dropdown-mini
+  h3.dropdown-mini__head Комнаты
+  input.dropdown-mini__input(type='text' readonly='' value='Сколько комнат')
+  span.dropdown-mini__icon.icon-expand
+  .dropdown-mini__menu
+    .dropdown-mini__menu-content
+      .dropdown-mini__menu-case
+        h3.dropdown-mini__menu-case-name Спальни
+        .dropdown-mini__menu-case-chois
+          button.dropdown-mini__menu-btn.dropdown-mini__menu-btn_light
+            | -
+          h3.dropdown-mini__menu-num 0
+          button.dropdown-mini__menu-btn +
+      .dropdown-mini__menu-case
+        h3.dropdown-mini__menu-case-name Кровати
+        .dropdown-mini__menu-case-chois
+          button.dropdown-mini__menu-btn.dropdown-mini__menu-btn_light
+            | -
+          h3.dropdown-mini__menu-num 0
+          button.dropdown-mini__menu-btn +
+      .dropdown-mini__menu-case
+        h3.dropdown-mini__menu-case-name Ванные комнаты
+        .dropdown-mini__menu-case-chois
+          button.dropdown-mini__menu-btn.dropdown-mini__menu-btn_light
+            | -
+          h3.dropdown-mini__menu-num 0
+          button.dropdown-mini__menu-btn +
