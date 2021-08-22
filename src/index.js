@@ -6,3 +6,5 @@ import "./UI/masked-text-field/masked-text-field.js";
 import "./UI/expandable-checkbox-list/expandable-checkbox-list.js";
 import "./UI/like-button/like-button.js";
 import "./UI/date-dropdown/date-dropdown.js";
+import "./UI/filter-date-dropdown/filter-date-dropdown.js";
+import "./UI/dropdown-mini/dropdown-mini.js";
