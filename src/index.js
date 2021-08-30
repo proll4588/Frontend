@@ -8,3 +8,4 @@ import "./UI/like-button/like-button.js";
 import "./UI/date-dropdown/date-dropdown.js";
 import "./UI/filter-date-dropdown/filter-date-dropdown.js";
 import "./UI/dropdown-mini/dropdown-mini.js";
+import "./UI/pagination/pagination.js";
