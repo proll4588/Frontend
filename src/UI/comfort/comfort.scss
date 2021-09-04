@@ -1,0 +1,106 @@
+.comfort {
+    display: flex;
+    flex-direction: row;
+
+    &__icon {
+        position: relative;
+    }
+
+    &__icon-head {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+
+        background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    }
+
+    &__icon-head::before {
+        content: "";
+
+        position: absolute;
+
+        width: 32px;
+        height: 32px;
+
+        left: 4px;
+        top: 4px;
+
+        border-radius: 50%;
+        background: white;
+    }
+
+    &__icon-eye {
+        width: 6px;
+        height: 6px;
+
+        border-radius: 50%;
+
+        background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+
+        position: absolute;
+        top: 12px;
+        left: 10px;
+    }
+
+    &__icon-eye::before {
+        content: "";
+
+        width: 6px;
+        height: 6px;
+
+        border-radius: 50%;
+
+        background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+
+        position: absolute;
+
+        top: 0px;
+        left: 14px;
+    }
+
+    &__icon-mouth {
+        width: 22px;
+        height: 22px;
+
+        position: absolute;
+        top: 9px;
+        left: 9px;
+
+        border-radius: 50%;
+
+        background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+    }
+
+    &__icon-mouth::before {
+        content: "";
+
+        width: 22px;
+        height: 18px;
+
+        background: white;
+
+        position: absolute;
+
+        top: 0px;
+        left: 0px;
+    }
+
+    &__content {
+        margin-left: 10px;
+    }
+
+    &__head {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 18px;
+
+        color: rgba(31, 32, 65, 0.75);
+    }
+
+    &__body {
+        font-size: 14px;
+        line-height: 24px;
+
+        color: rgba(31, 32, 65, 0.75);
+    }
+}
