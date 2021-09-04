@@ -1,5 +1,5 @@
-var page = 12;
-var allPage = 15;
+var page = 1;
+var allPage = 9;
 var container = document.querySelector(".pagination");
 if (container) draw();
 
@@ -10,165 +10,186 @@ function nextPage() {
 function draw() {
     container.innerHTML = "";
     var el = [];
-
-    if (page >= 4) {
-        el.push(
-            createBtn({
-                className: [
-                    "pagination__btn",
-                    "pagination__btn_back",
-                    "icon-arrow",
-                ],
-                content: "",
-            })
-        );
-    }
-
-    if (page == 1) {
-        el.push(
-            createBtn({
-                className: ["pagination__btn", "pagination__btn_active"],
-                content: "1",
-            })
-        );
+    if (allPage < 9) {
+        for (var i = 1; i < allPage + 1; i++) {
+            if (page == i) {
+                el.push(
+                    createBtn({
+                        className: [
+                            "pagination__btn",
+                            "pagination__btn_active",
+                        ],
+                        content: i,
+                    })
+                );
+            } else {
+                el.push(
+                    createBtn({
+                        className: ["pagination__btn"],
+                        content: i,
+                    })
+                );
+            }
+        }
     } else {
-        el.push(
-            createBtn({
-                className: ["pagination__btn"],
-                content: "1",
-            })
-        );
-    }
-
-    if (page < 4) {
-        for (var i = 2; i < 4; i++) {
-            if (page == i) {
-                el.push(
-                    createBtn({
-                        className: [
-                            "pagination__btn",
-                            "pagination__btn_active",
-                        ],
-                        content: i,
-                    })
-                );
-            } else {
-                el.push(
-                    createBtn({
-                        className: ["pagination__btn"],
-                        content: i,
-                    })
-                );
-            }
+        if (page >= 4) {
+            el.push(
+                createBtn({
+                    className: [
+                        "pagination__btn",
+                        "pagination__btn_back",
+                        "icon-arrow",
+                    ],
+                    content: "",
+                })
+            );
         }
 
-        el.push(
-            createBtn({
-                className: ["pagination__btn"],
-                content: "...",
-            })
-        );
-        el.push(
-            createBtn({
-                className: ["pagination__btn"],
-                content: allPage,
-            })
-        );
-        el.push(
-            createBtn({
-                className: [
-                    "pagination__btn",
-                    "pagination__btn_next",
-                    "icon-arrow",
-                ],
-                content: "",
-            })
-        );
-    }
-
-    if (page >= 4 && page <= allPage - 3) {
-        el.push(
-            createBtn({
-                className: ["pagination__btn"],
-                content: "...",
-            })
-        );
-
-        for (var i = page - 1; i < page + 2; i++) {
-            if (page == i) {
-                el.push(
-                    createBtn({
-                        className: [
-                            "pagination__btn",
-                            "pagination__btn_active",
-                        ],
-                        content: i,
-                    })
-                );
-            } else {
-                el.push(
-                    createBtn({
-                        className: ["pagination__btn"],
-                        content: i,
-                    })
-                );
-            }
+        if (page == 1) {
+            el.push(
+                createBtn({
+                    className: ["pagination__btn", "pagination__btn_active"],
+                    content: "1",
+                })
+            );
+        } else {
+            el.push(
+                createBtn({
+                    className: ["pagination__btn"],
+                    content: "1",
+                })
+            );
         }
 
-        el.push(
-            createBtn({
-                className: ["pagination__btn"],
-                content: "...",
-            })
-        );
-        el.push(
-            createBtn({
-                className: ["pagination__btn"],
-                content: allPage,
-            })
-        );
-        el.push(
-            createBtn({
-                className: [
-                    "pagination__btn",
-                    "pagination__btn_next",
-                    "icon-arrow",
-                ],
-                content: "",
-            })
-        );
-    }
+        if (page < 4) {
+            for (var i = 2; i < 4; i++) {
+                if (page == i) {
+                    el.push(
+                        createBtn({
+                            className: [
+                                "pagination__btn",
+                                "pagination__btn_active",
+                            ],
+                            content: i,
+                        })
+                    );
+                } else {
+                    el.push(
+                        createBtn({
+                            className: ["pagination__btn"],
+                            content: i,
+                        })
+                    );
+                }
+            }
 
-    if (page > allPage - 3) {
-        el.push(
-            createBtn({
-                className: ["pagination__btn"],
-                content: "...",
-            })
-        );
+            el.push(
+                createBtn({
+                    className: ["pagination__btn"],
+                    content: "...",
+                })
+            );
+            el.push(
+                createBtn({
+                    className: ["pagination__btn"],
+                    content: allPage,
+                })
+            );
+            el.push(
+                createBtn({
+                    className: [
+                        "pagination__btn",
+                        "pagination__btn_next",
+                        "icon-arrow",
+                    ],
+                    content: "",
+                })
+            );
+        }
 
-        for (var i = allPage - 2; i < allPage + 1; i++) {
-            if (page == i) {
-                el.push(
-                    createBtn({
-                        className: [
-                            "pagination__btn",
-                            "pagination__btn_active",
-                        ],
-                        content: i,
-                    })
-                );
-            } else {
-                el.push(
-                    createBtn({
-                        className: ["pagination__btn"],
-                        content: i,
-                    })
-                );
+        if (page >= 4 && page <= allPage - 3) {
+            el.push(
+                createBtn({
+                    className: ["pagination__btn"],
+                    content: "...",
+                })
+            );
+
+            for (var i = page - 1; i < page + 2; i++) {
+                if (page == i) {
+                    el.push(
+                        createBtn({
+                            className: [
+                                "pagination__btn",
+                                "pagination__btn_active",
+                            ],
+                            content: i,
+                        })
+                    );
+                } else {
+                    el.push(
+                        createBtn({
+                            className: ["pagination__btn"],
+                            content: i,
+                        })
+                    );
+                }
+            }
+
+            el.push(
+                createBtn({
+                    className: ["pagination__btn"],
+                    content: "...",
+                })
+            );
+            el.push(
+                createBtn({
+                    className: ["pagination__btn"],
+                    content: allPage,
+                })
+            );
+            el.push(
+                createBtn({
+                    className: [
+                        "pagination__btn",
+                        "pagination__btn_next",
+                        "icon-arrow",
+                    ],
+                    content: "",
+                })
+            );
+        }
+
+        if (page > allPage - 3) {
+            el.push(
+                createBtn({
+                    className: ["pagination__btn"],
+                    content: "...",
+                })
+            );
+
+            for (var i = allPage - 2; i < allPage + 1; i++) {
+                if (page == i) {
+                    el.push(
+                        createBtn({
+                            className: [
+                                "pagination__btn",
+                                "pagination__btn_active",
+                            ],
+                            content: i,
+                        })
+                    );
+                } else {
+                    el.push(
+                        createBtn({
+                            className: ["pagination__btn"],
+                            content: i,
+                        })
+                    );
+                }
             }
         }
     }
-
     el.forEach((b) => {
         container.appendChild(b);
     });
