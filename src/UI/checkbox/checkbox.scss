@@ -25,6 +25,7 @@
     &__title {
         @include set-font(normal, bold, 14px, 18px, $dark75);
         width: 230px;
+        margin-bottom: 5px;
     }
 
     &__content {

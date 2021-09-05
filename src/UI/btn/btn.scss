@@ -21,6 +21,10 @@
             opacity: 0.5;
             cursor: auto;
         }
+
+        // &:hover {
+        //     background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+        // }
     }
 
     &_void {
@@ -38,6 +42,15 @@
             border-radius: 26px;
             z-index: -1;
         }
+
+        // &:hover::before {
+        //     content: "";
+        //     background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+        // }
+
+        // &:hover {
+        //     color: #6fcf97;
+        // }
 
         &-un {
             &::before {
