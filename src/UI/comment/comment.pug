@@ -1,0 +1,11 @@
+include ../like-button/like-button.pug
+mixin comment({addClass, imgSrc, name, date, like, text})
+    div(class = `comment ${addClass}`)
+        .comment__head 
+            img.comment__photo(src = imgSrc width = 48)
+            .comment__head-info 
+                .comment__name #{name}
+                .comment__date #{date}
+        .comment__body
+            +like-button({addClass: "comment__like-button" ,numOfLikes: like})
+            .comment__text #{text}

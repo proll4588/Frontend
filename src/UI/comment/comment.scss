@@ -1,0 +1,43 @@
+.comment {
+    &__head {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__photo {
+        width: 48px;
+        height: 48px;
+
+        border-radius: 50%;
+
+        margin-right: 10px;
+    }
+
+    &__head-info {
+    }
+
+    &__name {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    &__date {
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: row;
+
+        margin-top: 10px;
+    }
+
+    &__text {
+        max-width: 653px;
+    }
+
+    &__like-button {
+        margin-right: 14px;
+        margin-left: 4px;
+    }
+}
