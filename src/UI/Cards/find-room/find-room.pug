@@ -1,0 +1,11 @@
+include ../../date-dropdown/date-dropdown.pug
+include ../../dropdown/dropdown.pug
+include ../../btn/btn.pug
+
+mixin find-room({addClass})
+    div(class = `find-room ${addClass}`)
+        .find-room__container
+            h1.find-room__head Найдём номера под ваши пожелания
+            +date-dropdown({addClass:"find-room__date-dropdown"})
+            +dropdown({addClass:"find-room__dropdown"})
+            +btn({type:"with-arrow", isClicked:true, text:"подобрать номер", addClass:"find-room__btn"})
