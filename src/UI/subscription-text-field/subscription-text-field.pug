@@ -1,4 +1,5 @@
-.subscription-text-field
-    h3.subscription-text-field__head subscription text field
-    input.subscription-text-field__input(type='email' placeholder='Email')
-    sapn.subscription-text-field__arrow.icon-arrow
+mixin subscription-text-field({addClass})
+    div(class = `subscription-text-field ${addClass}`)
+        h3.subscription-text-field__head subscription text field
+        input.subscription-text-field__input(type='email' placeholder='Email')
+        sapn.subscription-text-field__arrow.icon-arrow

@@ -24,7 +24,8 @@
         position: absolute;
         top: 30px;
         transition: 0.4s;
-        // z-index: -1;
+        background: white;
+        z-index: 1;
 
         &_invis {
             top: -100px;

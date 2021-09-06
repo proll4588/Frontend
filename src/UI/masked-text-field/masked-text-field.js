@@ -83,7 +83,7 @@ function isError(text) {
                     if (el.length == 1) {
                         el = "";
                     } else {
-                        if (Number(el) > 31) {
+                        if (Number(el) > 12) {
                             el = el.substring(0, 1);
                         }
                     }

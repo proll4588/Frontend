@@ -1,6 +1,6 @@
-mixin switcher(name, text)
-    .switcher
+mixin switcher({addClass, name, text})
+    div(class = `switcher ${addClass}`)
         label.switcher__box
             input.switcher__input(type='checkbox' id=name, checked="")
             span.switcher__body
-        label.switcher__text #{text}
+        label.switcher__text(for=name) #{text}
