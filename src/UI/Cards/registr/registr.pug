@@ -1,0 +1,31 @@
+include ../../text-field/text-field.pug
+include ../../radio/radio.pug
+include ../../masked-text-field/masked-text-field.pug
+include ../../switcher/switcher.pug
+include ../../btn/btn.pug
+
+mixin registr({addClass})
+    div(class=`registr ${addClass}`)
+        .registr__container 
+            h1.registr__head Регистрация аккаунта
+
+            .registr__info
+                +text-field({addClass:"registr__field", placeholder:"Имя", type:"text"})
+                +text-field({addClass:"registr__field", placeholder:"Фамилия", type:"text"})
+                .registr__gender
+                    +radio({addClass:"registr__radio", name:"gender", text:"Мужчина", id:"gender_1"})
+                    +radio({addClass:"registr__radio", name:"gender", text:"Женщина", id:"gender_2"})
+
+            .registr__date-of-birth
+                +masked-text-field({addClass:"registr__field"})
+
+            .registr__data-for-enter 
+                +text-field({addClass:"registr__field", placeholder:"Email", type:"text", name:"данные для входа в сервис"})
+                +text-field({addClass:"registr__field", placeholder:"Пароль", type:"password"})
+                +switcher({addClass:"registr__switcher", name:"switcher", text:"Получать спецпредложения"})
+
+            +btn({type:"with-arrow", isClicked:true, text:"перейти к оплате", addClass:"registr__btn"})
+
+            .registr__footer
+                .registr__footer-text Уже есть аккаунт на Toxin
+                +btn({type:"void", isClicked:true, text:"войти", addClass:"registr__footer-btn"})
