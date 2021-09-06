@@ -1,0 +1,17 @@
+include ../../text-field/text-field.pug
+include ../../btn/btn.pug
+
+mixin login({addClass})
+    div(class=`login ${addClass}`)
+        .login__container
+            h1.login__head  Войти
+
+            +text-field({addClass:"login__field", placeholder:"Email", type:"text"})
+            +text-field({addClass:"login__field", placeholder:"Пароль", type:"password"})
+
+            +btn({type:"with-arrow", isClicked:true, text:"войти", addClass:"login__btn"})
+
+            .login__footer
+                .login__footer-text Уже есть аккаунт на Toxin
+                +btn({type:"void", isClicked:true, text:"создать", addClass:"login__footer-btn"})
+            
