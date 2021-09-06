@@ -1,4 +1,5 @@
-mixin text-field({addClass})
+mixin text-field({addClass, name, placeholder, type})
   div(class=`text-field ${addClass}`)
-    h3.text-field__head Text field
-    input.text-field__input(type='text' placeholder='Text field')
+    if name
+      h3.text-field__head #{name}
+    input.text-field__input(type=type placeholder=placeholder)

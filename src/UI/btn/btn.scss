@@ -28,18 +28,24 @@
     }
 
     &_void {
-        background: #fff;
+        background: white;
         color: #bc9cff;
+        // z-index: 1;
 
-        &::before {
+        &::after {
             content: "";
+
             position: absolute;
+
             top: -2px;
             bottom: -2px;
             left: -2px;
             right: -2px;
+
             background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+
             border-radius: 26px;
+
             z-index: -1;
         }
 
