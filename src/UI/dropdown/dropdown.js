@@ -8,78 +8,85 @@ const enter = document.querySelector(".dropdown__menu-color-btn-enter");
 
 var cond = 0;
 
-if (clean) {
-    clean.addEventListener("click", (e) => {
-        for (var i = 0; i < numbers.length; i++) {
-            if (numbers[i].textContent != 0) {
-                btns[i * 2].classList.toggle("dropdown__menu-btn_light");
+function setup() {
+    if (clean) {
+        clean.addEventListener("click", (e) => {
+            numbers.forEach((el) => {
+                el.innerHTML = "0";
+            });
+
+            setCond();
+            setName();
+        });
+    }
+
+    if (dropdown) {
+        dropdown.addEventListener("click", (e) => {
+            menu.classList.toggle("dropdown__menu-vis");
+            input.classList.toggle("dropdown__input-droped");
+        });
+    }
+
+    if (enter) {
+        enter.addEventListener("click", (e) => {
+            menu.classList.toggle("dropdown__menu-vis");
+            input.classList.toggle("dropdown__input-droped");
+        });
+    }
+
+    if (input) {
+        input.addEventListener("click", (e) => {
+            menu.classList.toggle("dropdown__menu-vis");
+            input.classList.toggle("dropdown__input-droped");
+        });
+    }
+
+    if (btns) {
+        btns.forEach((el, key) => {
+            el.addEventListener("click", (e) => {
+                btnClick(key);
+            });
+        });
+    }
+
+    setCond();
+    setName();
+}
+
+function setCond() {
+    btns.forEach((el, key) => {
+        var id = key;
+
+        if (id % 2 == 0) {
+            if (Number(numbers[id / 2].textContent) == 0) {
+                el.classList.add("dropdown__menu-btn_light");
+            } else {
+                el.classList.remove("dropdown__menu-btn_light");
             }
         }
-
-        numbers.forEach((el) => {
-            el.innerHTML = "0";
-        });
-
-        toogleVis();
-        cond = 0;
-        setName(0);
     });
+
+    if (!sumg()) {
+        clean.classList.add("dropdown__btn-invis");
+    } else {
+        clean.classList.remove("dropdown__btn-invis");
+    }
 }
 
-if (dropdown) {
-    dropdown.addEventListener("click", (e) => {
-        menu.classList.toggle("dropdown__menu-vis");
-        input.classList.toggle("dropdown__input-droped");
-    });
-}
+function btnClick(key) {
+    var id = key;
+    if (id % 2 == 0) {
+        a = Number(numbers[id / 2].textContent);
+        if (a > 0) {
+            numbers[id / 2].innerHTML = a - 1;
+        }
+    } else {
+        a = Number(numbers[(id - 1) / 2].textContent);
+        numbers[(id - 1) / 2].innerHTML = a + 1;
+    }
 
-if (enter) {
-    enter.addEventListener("click", (e) => {
-        menu.classList.toggle("dropdown__menu-vis");
-        input.classList.toggle("dropdown__input-droped");
-    });
-}
-
-if (input) {
-    input.addEventListener("click", (e) => {
-        menu.classList.toggle("dropdown__menu-vis");
-        input.classList.toggle("dropdown__input-droped");
-    });
-}
-
-if (btns) {
-    btns.forEach((el, key) => {
-        el.addEventListener("click", (e) => {
-            var id = key;
-            var a;
-            if (id % 2 == 0) {
-                a = Number(numbers[id / 2].textContent);
-
-                if (a > 0) {
-                    numbers[id / 2].innerHTML = a - 1;
-                    if (a - 1 == 0) {
-                        btns[id].classList.toggle("dropdown__menu-btn_light");
-                    }
-                }
-            } else {
-                a = Number(numbers[(id - 1) / 2].textContent);
-                numbers[(id - 1) / 2].innerHTML = a + 1;
-                if (a == 0) {
-                    btns[id - 1].classList.toggle("dropdown__menu-btn_light");
-                }
-            }
-
-            if (cond == 0 && sumg() != 0) {
-                toogleVis();
-                cond = 1;
-            } else if (cond != 0 && sumg() == 0) {
-                cond = 0;
-                toogleVis();
-            }
-
-            setName(sumg());
-        });
-    });
+    setCond();
+    setName();
 }
 
 function sumg() {
@@ -91,7 +98,9 @@ function sumg() {
     return sum;
 }
 
-function setName(num) {
+function setName() {
+    var num = sumg();
+
     if (num == 1) {
         input.value = `${num} гость`;
     } else if (num > 1 && num < 5) {
@@ -103,6 +112,4 @@ function setName(num) {
     }
 }
 
-function toogleVis() {
-    clean.classList.toggle("dropdown__btn-invis");
-}
+setup();

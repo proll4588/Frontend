@@ -1,5 +1,5 @@
 include ../btn/btn.pug
-mixin dropdown({addClass})
+mixin dropdown({addClass, start})
   div(class = `dropdown ${addClass}`)
     h3.dropdown__head Гости
     input.dropdown__input(type='text' readonly='' value='Сколько гостей')
@@ -9,24 +9,24 @@ mixin dropdown({addClass})
         .dropdown__menu-case
           h3.dropdown__menu-case-name Взрослые
           .dropdown__menu-case-chois
-            button.dropdown__menu-btn.dropdown__menu-btn_light
+            button.dropdown__menu-btn
               | -
-            h3.dropdown__menu-num 0
+            h3.dropdown__menu-num #{start[0]}
             button.dropdown__menu-btn +
         .dropdown__menu-case
           h3.dropdown__menu-case-name Дети
           .dropdown__menu-case-chois
-            button.dropdown__menu-btn.dropdown__menu-btn_light
+            button.dropdown__menu-btn
               | -
-            h3.dropdown__menu-num 0
+            h3.dropdown__menu-num #{start[1]}
             button.dropdown__menu-btn +
         .dropdown__menu-case
           h3.dropdown__menu-case-name Младенцы
           .dropdown__menu-case-chois
-            button.dropdown__menu-btn.dropdown__menu-btn_light
+            button.dropdown__menu-btn
               | -
-            h3.dropdown__menu-num 0
+            h3.dropdown__menu-num #{start[2]}
             button.dropdown__menu-btn +
         .dropdown__menu-case
-          +btn({type:"unboard", isClicked:true, text:"Очистить", addClass: "dropdown__menu-color-btn-clean dropdown__btn-invis"})
+          +btn({type:"unboard", isClicked:true, text:"Очистить", addClass: "dropdown__menu-color-btn-clean"})
           +btn({type:"unboard", isClicked:true, text:"Применить", addClass: "dropdown__menu-color-btn-enter"})
