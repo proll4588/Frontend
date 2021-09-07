@@ -1,12 +1,12 @@
-mixin date-dropdown({addClass})
+mixin date-dropdown({addClass, startDate})
     div(class = `date-dropdown ${addClass}`)
         .date-dropdown__part
             h3.date-dropdown__head Прибытие
-            input.date-dropdown__input(placeholder = "ДД.ММ.ГГГГ", readonly="")
+            input.date-dropdown__input(placeholder = "ДД.ММ.ГГГГ", readonly="" value=startDate[0])
             span.date-dropdown__arrow.icon-expand
         .date-dropdown__part
             h3.date-dropdown__head Выезд
-            input.date-dropdown__input(placeholder = "ДД.ММ.ГГГГ", readonly="")
+            input.date-dropdown__input(placeholder = "ДД.ММ.ГГГГ", readonly="" value=startDate[1])
             span.date-dropdown__arrow.icon-expand
         .date-dropdown__calendar.date-dropdown__calendar_invis
             include ../calendar/calendar.pug

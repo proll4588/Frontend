@@ -2,6 +2,7 @@
     width: 320px;
     display: flex;
     justify-content: space-between;
+    position: relative;
 
     &__part {
         position: relative;
@@ -58,6 +59,7 @@
     &__calendar {
         position: absolute;
         top: 70px;
+        z-index: 2;
 
         &_invis {
             top: -1000px;
