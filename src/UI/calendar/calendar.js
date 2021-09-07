@@ -26,6 +26,9 @@ const calendar_body = document.querySelector(".date-dropdown__calendar");
 const inputBoxes = document.querySelectorAll(".date-dropdown__input");
 const inputBox = document.querySelector(".filter-date-dropdown__input");
 
+const blocksRigth = document.querySelectorAll(".room-info__info-block-right");
+const blocksLeft = document.querySelectorAll(".room-info__info-block-left");
+
 var displayedDate = new Date();
 var selectedDate = { start: 0, end: 0 };
 var curentDate = new Date();
@@ -35,6 +38,22 @@ var is_curent_month = true;
 var firstDayOfWeek = 0;
 
 function setUp() {
+    if (inputBoxes) {
+        var pattern = /(\d{2})\.(\d{2})\.(\d{4})/;
+
+        if (inputBoxes[0].value) {
+            selectedDate.start = new Date(
+                inputBoxes[0].value.replace(pattern, "$3-$2-$1")
+            );
+        }
+
+        if (inputBoxes[1].value) {
+            selectedDate.end = new Date(
+                inputBoxes[1].value.replace(pattern, "$3-$2-$1")
+            );
+        }
+    }
+
     updateDates(displayedDate.getMonth(), displayedDate.getFullYear());
 
     if (btnBack) {
@@ -343,5 +362,14 @@ function setData() {
         });
     });
 }
+
+// function countDays() {
+//     return Math.ceil(
+//         (selectedDate.end.getTime() - selectedDate.start.getTime()) /
+//             (1000 * 60 * 60 * 24)
+//     );
+// }
+
+// function getCost() {}
 
 if (table) setUp();
