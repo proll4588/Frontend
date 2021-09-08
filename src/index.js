@@ -1,5 +1,5 @@
 import "./styles/style.scss";
-import "./UI/card/card.js";
+import "./UI/Cards/card/card.js";
 import "./UI/calendar/calendar.js";
 import "./UI/dropdown/dropdown.js";
 import "./UI/masked-text-field/masked-text-field.js";
@@ -9,3 +9,4 @@ import "./UI/date-dropdown/date-dropdown.js";
 import "./UI/filter-date-dropdown/filter-date-dropdown.js";
 import "./UI/dropdown-mini/dropdown-mini.js";
 import "./UI/pagination/pagination.js";
+import "./UI/Cards/room-info/room-info.js";

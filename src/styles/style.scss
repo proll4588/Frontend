@@ -39,7 +39,6 @@ body {
 }
 
 @import "../UI/text-field/text-field.scss";
-@import "../UI/card/card.scss";
 @import "../UI/radio/radio.scss";
 @import "../UI/switcher/switcher.scss";
 @import "../UI/checkbox/checkbox.scss";
@@ -62,3 +61,5 @@ body {
 @import "../UI/Cards/find-room/find-room.scss";
 @import "../UI/Cards/registr/registr.scss";
 @import "../UI/Cards/login/login.scss";
+@import "../UI/Cards/room-info/room-info.scss";
+@import "../UI/Cards/card/card.scss";
