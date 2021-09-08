@@ -1,0 +1,37 @@
+include ../../date-dropdown/date-dropdown.pug
+include ../../dropdown/dropdown.pug
+include ../../btn/btn.pug
+
+mixin room-info({addClass, numOfRoom, isLux, cost, dates, discount})
+    div(class=`room-info ${addClass}`)
+        .room-info__container 
+            .room-info__head  
+                .room-info__num
+                    .room-info__num-room #{numOfRoom}
+                    if isLux
+                        .room-info__lux люкс
+                .room-info__cost-room #{cost}₽
+            
+            +date-dropdown({addClass:"room-info__date-dropdown", startDate:dates})
+
+            +dropdown({addClass:"room-info__dropdown", start:[1, 1, 1]})
+
+            .room-info__info 
+                .room-info__info-block
+                    .room-info__info-block-left 
+                    .room-info__info-block-right
+
+                .room-info__info-block
+                    .room-info__info-block-left Сбор за услуги: скидка #{discount}₽
+                    .room-info__info-block-right 0₽
+
+                .room-info__info-block
+                    .room-info__info-block-left Сбор за дополнительные услуги
+                    .room-info__info-block-right
+
+            .room-info__full-sum
+                h2.room-info__full-sum-left Итого
+                .room-info__full-sum-mid
+                h2.room-info__full-sum-rigth
+
+            +btn({type:"with-arrow", isClicked:true, text:"забронировать", addClass:"room-info__btn"})
