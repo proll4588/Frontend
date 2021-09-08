@@ -334,11 +334,41 @@ function setData() {
 
             if (inputBoxes.length != 0) {
                 if (selectedDate.start != 0) {
-                    inputBoxes[0].value = `${selectedDate.start.getDate()}.${selectedDate.start.getMonth()}.${selectedDate.start.getFullYear()}`;
+                    inputBoxes[0].value = "";
+                    if (selectedDate.start.getDate() < 10)
+                        inputBoxes[0].value += `0${selectedDate.start.getDate()}.`;
+                    else
+                        inputBoxes[0].value += `${selectedDate.start.getDate()}.`;
+
+                    if (selectedDate.start.getMonth() < 10)
+                        inputBoxes[0].value += `0${
+                            selectedDate.start.getMonth() + 1
+                        }.`;
+                    else
+                        inputBoxes[0].value += `${
+                            selectedDate.start.getMonth() + 1
+                        }.`;
+
+                    inputBoxes[0].value += `${selectedDate.start.getFullYear()}`;
                 }
 
                 if (selectedDate.end != 0) {
-                    inputBoxes[1].value = `${selectedDate.end.getDate()}.${selectedDate.end.getMonth()}.${selectedDate.end.getFullYear()}`;
+                    inputBoxes[1].value = "";
+                    if (selectedDate.end.getDate() < 10)
+                        inputBoxes[1].value += `0${selectedDate.end.getDate()}.`;
+                    else
+                        inputBoxes[1].value += `${selectedDate.end.getDate()}.`;
+
+                    if (selectedDate.end.getMonth() < 10)
+                        inputBoxes[1].value += `0${
+                            selectedDate.end.getMonth() + 1
+                        }.`;
+                    else
+                        inputBoxes[1].value += `${
+                            selectedDate.end.getMonth() + 1
+                        }.`;
+
+                    inputBoxes[1].value += `${selectedDate.end.getFullYear()}`;
                 }
             }
 

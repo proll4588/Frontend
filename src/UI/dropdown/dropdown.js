@@ -111,5 +111,4 @@ function setName() {
         input.value = `${num} гостей`;
     }
 }
-
-setup();
+if (menu) setup();
