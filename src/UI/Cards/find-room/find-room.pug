@@ -6,6 +6,6 @@ mixin find-room({addClass})
     div(class = `find-room ${addClass}`)
         .find-room__container
             h1.find-room__head Найдём номера под ваши пожелания
-            +date-dropdown({addClass:"find-room__date-dropdown"})
-            +dropdown({addClass:"find-room__dropdown"})
+            +date-dropdown({addClass:"find-room__date-dropdown", startDate:["", ""]})
+            +dropdown({addClass:"find-room__dropdown", start:[0, 0, 0]})
             +btn({type:"with-arrow", isClicked:true, text:"подобрать номер", addClass:"find-room__btn"})
