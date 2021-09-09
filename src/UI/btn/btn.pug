@@ -5,8 +5,8 @@ mixin btn({type, isClicked, text, addClass})
             button(class = `btn btn_${type} icon-arrow ${addClass}`) #{text}
         when "void"
             if isClicked
-                .btn__back
-                    button(class = `btn btn_${type} ${addClass}`) #{text}
+                div(class=`btn__back ${addClass}`)
+                    button(class = `btn btn_${type}`) #{text}
             else 
                 .btn__back.btn__back-un
                     button(class = `btn btn_${type} btn_${type}-un ${addClass}`) #{text} 
