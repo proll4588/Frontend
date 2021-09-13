@@ -10,3 +10,4 @@ import "./UI/filter-date-dropdown/filter-date-dropdown.js";
 import "./UI/dropdown-mini/dropdown-mini.js";
 import "./UI/pagination/pagination.js";
 import "./UI/Cards/room-info/room-info.js";
+import "./UI/header/header.js";

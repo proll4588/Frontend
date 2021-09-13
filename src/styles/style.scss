@@ -38,6 +38,11 @@ body {
     @include set-font(normal, normal, 14px, 24px, $dark75);
 }
 
+a {
+    text-decoration: none;
+    @include set-font(normal, normal, 14px, 17px, $dark50);
+}
+
 @import "../UI/text-field/text-field.scss";
 @import "../UI/radio/radio.scss";
 @import "../UI/switcher/switcher.scss";
@@ -63,3 +68,6 @@ body {
 @import "../UI/Cards/login/login.scss";
 @import "../UI/Cards/room-info/room-info.scss";
 @import "../UI/Cards/card/card.scss";
+
+@import "../UI/header/header.scss";
+@import "../UI/footer/footer.scss";
