@@ -1,0 +1,23 @@
+include ../btn/btn.pug
+
+mixin header({addClass, name})
+    .header
+        .header__container
+            .header__logo 
+                img(src="../img/logo/logo.svg", alt="").header__img
+            .header__interface
+                nav.header__nav 
+                    a(href="#").header__a О нас
+                    .header__expand.icon-expand Услуги
+                    a(href="#").header__a Вакансии
+                    a(href="#").header__a Новости
+                    .header__expand.icon-expand Соглашения
+                if name.length == 0
+                    .header__btns
+                        +btn({type:"void", isClicked:true, text:"войти", addClass:"header__btn"})
+                        +btn({type:"full", isClicked:true, text:"зарегистрироваться", addClass:"header__btn"})
+                else 
+                    //- .header__person
+                        //- .head__stick 
+                    .header__name #{name}
+            +btn({type:"full", isClicked:true, text:"menu", addClass:"header__menu-btn"})
