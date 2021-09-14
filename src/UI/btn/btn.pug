@@ -1,17 +1,17 @@
 //- typr = [full, void, unboard, with-arrow]
-mixin btn({type, isClicked, text, addClass})
+mixin btn({type, isClicked, text, addClass, url})
     case type
         when "with-arrow"
-            button(class = `btn btn_${type} icon-arrow ${addClass}`) #{text}
+            button(class = `btn btn_${type} icon-arrow ${addClass}` onclick=`document.location='${url}'`) #{text}
         when "void"
             if isClicked
                 div(class=`btn__back ${addClass}`)
-                    button(class = `btn btn_${type}`) #{text}
+                    button(class = `btn btn_${type}` onclick=`document.location='${url}'`) #{text}
             else 
                 .btn__back.btn__back-un
-                    button(class = `btn btn_${type} btn_${type}-un ${addClass}`) #{text} 
+                    button(class = `btn btn_${type} btn_${type}-un ${addClass}` onclick=`document.location='${url}'`) #{text} 
         default
             if isClicked
-                button(class = `btn btn_${type} ${addClass}`) #{text}
+                button(class = `btn btn_${type} ${addClass}` onclick=`document.location='${url}'`) #{text}
             else 
-                button(class = `btn btn_${type} btn_${type}-un ${addClass}`) #{text} 
+                button(class = `btn btn_${type} btn_${type}-un ${addClass}` onclick=`document.location='${url}'`) #{text} 
