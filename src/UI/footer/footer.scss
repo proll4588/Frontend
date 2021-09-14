@@ -1,4 +1,10 @@
 .footer {
+    // position: fixed;
+    // bottom: 0;
+    // right: 0;
+
+    height: 442px;
+
     &__up {
         height: 372px;
         width: 100%;
@@ -102,6 +108,7 @@
 
 @media (max-width: 920px) {
     .footer {
+        height: 367px;
         &__up {
             display: none;
         }
