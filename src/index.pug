@@ -1,109 +1,25 @@
+include UI/header/header.pug 
+include UI/Cards/find-room/find-room.pug
+include UI/footer/footer.pug
+
 doctype html
-html(lang="en")
+html(lang="ru")
     head
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title 123
-    body
-        include UI/btn/btn.pug
-        //- +btn({type:"full", isClicked:true, text:"Кнопка", addClass: ""})
-        //- +btn({type:"full", isClicked:false, text:"Кнопка", addClass: ""})
-        //- br
-        //- +btn({type:"void", isClicked:true, text:"Кнопка", addClass: ""})
-        //- +btn({type:"void", isClicked:false, text:"Кнопка", addClass: ""})
-        //- br
-        //- +btn({type:"unboard", isClicked:true, text:"Кнопка", addClass: ""})
-        //- +btn({type:"unboard", isClicked:false, text:"Кнопка", addClass: ""})
-        //- br
-        //- +btn({type:"with-arrow", isClicked:true, text:"Кнопка", addClass: ""})
+        title Главная страница
+    body 
+        .landing
+            +header({addClass:"landing__header", name:""})
+            main.landing__body
+                .landing__content
+                    +find-room({addClass:"landing__find-room"})
 
-        //- include UI/bullet-list/bullet-list.pug
-        //- +bullet-list({addClass:"", data:["Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"], headName:"bullet list"})
-
-        //- include UI/checkbox/checkbox.pug
-        //- +checkbox({addClass:"", text:"Можно курить"})
-        //- +checkbox({addClass:"", text:"Можно с питомцами"})
-        //- +checkbox({addClass:"", text:"Можно пригласить гостей (до 10 человек)"})
-        //- br
-        //- +checkbox({addClass:"", text:"Ширина коридоров в номере не менее 91 см.", type:"rich", title:"Широкий коридор"})
-        //- +checkbox({addClass:"", text:"На 1 этаже вас встретит специалист  и проводит до номера.", type:"rich", title:"Помощник для инвалидов"})
-
-        //- include UI/comfort/comfort.pug
-        //- +comfort({addClass:""})
-
-        //- include UI/udobstvo/udobstvo.pug
-        //- +udobstvo({addClass:""})
-
-        //- include UI/comment/comment.pug
-        //- +comment({addClass:"", imgSrc:"../../img/people/1.jpeg", name:"Кот Котович", date:"5 минут назад", like:10, text:"Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."})
-
-        //- include UI/date-dropdown/date-dropdown.pug
-        //- +date-dropdown({addClass:""})
-
-        //- include UI/dropdown/dropdown.pug
-        //- +dropdown({addClass:""})
-
-        //- include UI/dropdown-mini/dropdown-mini.pug
-        //- +dropdown-mini({addClass:""})
-
-        //- include UI/expandable-checkbox-list/expandable-checkbox-list.pug
-        //- +expandable-checkbox-list({addClass:"", head:"Выдвижной список", texts:["Завтрак", "Письменный стол", "Стул для кормления", "Кроватка", "Телевизор", "Шампунь"]})
-
-        //- include UI/filter-date-dropdown/filter-date-dropdown.pug
-        //- +filter-date-dropdown({addClass:""})
-
-        //- include UI/masked-text-field/masked-text-field.pug
-        //- +masked-text-field({addClass:""})
-
-        //- include UI/pagination/pagination.pug
-        //- +pagination({addClass:""})
-
-        //- include UI/radio/radio.pug
-        //- +radio({addClass:"", name:"123", text:"Мужык", id:"radio_1"})
-        //- +radio({addClass:"", name:"123", text:"Жена", id:"radio_2"})
-
-        //- include UI/subscription-text-field/subscription-text-field.pug
-        //- +subscription-text-field({addClass:""})
-
-        //- include UI/switcher/switcher.pug 
-        //- +switcher({addClass:"", name:"123321", text:"Привет"})
-
-        //- include UI/text-field/text-field.pug 
-        //- +text-field({addClass:"", name:"Text", placeholder:"Some text"})
-        //- +text-field({addClass:"", placeholder:"Some text too"})
-
-        //- include UI/Cards/find-room/find-room.pug
-        //- +find-room({addClass:""})
-
-        //- include UI/Cards/registr/registr.pug
-        //- +registr({addClass:""})
-
-        //- include UI/Cards/login/login.pug
-        //- +login({addClass:""})
-
-        //- include UI/Cards/room-info/room-info.pug
-        //- +room-info({addClass:"", numOfRoom:888, isLux:true, cost:"9 990", dates:["13.09.2021", "23.09.2021"], discount: "2 179"})
-
-        //- include UI/Cards/card/card.pug
-        //- +card({addClass:"", numRoom:888, costRoom:"9 990", feetBackRoom:145, isLux:true, stars:4, picSrc:["../img/card/image_1.svg","../img/card/image_1.svg","../img/card/image_2.svg","../img/card/image_2.svg",]})
-        
-        //- include UI/header/header.pug 
-        //- +header({addClass:"", name:"Юлий Цезарь"})
-
-        include UI/footer/footer.pug 
-        +footer({addClass:""})
+        +footer({addClass:"landing__footer"})
 
 
 
-
-        br
-        br
-        br
-        br
-        br
-        br
-        br
-        br
-        br
-
+            
+            
+            
