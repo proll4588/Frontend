@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
+    target: "node",
     context: path.resolve(__dirname, "src"),
     mode: "development",
     entry: {
@@ -23,6 +24,16 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "index.pug",
             filename: "index.html",
+            minify: false,
+        }),
+        new HtmlWebpackPlugin({
+            template: "pages/registration.pug",
+            filename: "registration.html",
+            minify: false,
+        }),
+        new HtmlWebpackPlugin({
+            template: "pages/signIn.pug",
+            filename: "signIn.html",
             minify: false,
         }),
         new HtmlWebpackPugPlugin(),
