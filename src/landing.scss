@@ -1,15 +1,17 @@
 .landing {
-    &__header {
-    }
+    width: 100%;
 
     &__body {
         height: 830px;
         width: 100%;
-        background: url(../img/backgroung/landing_background.svg) no-repeat;
+        background-image: url(../img/backgroung/landing_background.svg);
+        background-attachment: inherit;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     &__content {
-        max-width: 1100px;
+        max-width: $max-width-container;
         height: 100%;
 
         margin: 0 auto;
@@ -18,5 +20,32 @@
     }
 
     &__find-room {
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 1350px) {
+    .landing {
+        &__body {
+            background-size: 100%;
+        }
+    }
+}
+
+@media (max-width: $break-point-2) {
+    .landing {
+        &__body {
+            height: 500px;
+            background-size: auto 500px;
+        }
+
+        &__content {
+            height: 100%;
+            padding-top: 70px;
+        }
+
+        &__find-room {
+            margin: 0 auto;
+        }
     }
 }
