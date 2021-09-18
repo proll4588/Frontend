@@ -7,6 +7,12 @@ $dark50: rgba(31, 32, 65, 0.5);
 $dark25: rgba(31, 32, 65, 0.25);
 $dark5: rgba(31, 32, 65, 0.05);
 
+$max-width-container: 1920px;
+
+$break-point-1: 1000px;
+$break-point-2: 700px;
+$break-point-3: 450px;
+
 @mixin set-font($style, $weight, $size, $line-height, $color) {
     font-family: Montserrat;
     font-style: $style;
