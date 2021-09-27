@@ -3,21 +3,38 @@
         width: 100%;
         height: 684px;
 
-        background: url(../img/backgroung/regestration_background.svg);
+        background: url(../img/backgroung/regestration_background.svg) bottom
+            no-repeat;
     }
 
     &__contaienr {
         max-width: $max-width-container;
         margin: 0 auto;
-        padding-left: 35%;
+
         padding-top: 20px;
     }
 
     &__registr {
+        margin: 0 auto;
     }
+}
 
-    &__footer {
+@media (min-width: 1350px) {
+    .registration {
+        &__body {
+            background-size: 100%;
+        }
     }
+}
 
-    // & { }
+@media (max-width: $break-point-2) {
+    .registration {
+        &__body {
+            background-size: auto 684px;
+        }
+
+        &__contaienr {
+            height: 100%;
+        }
+    }
 }

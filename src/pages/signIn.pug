@@ -1,3 +1,7 @@
+include ../UI/header/header.pug
+include ../UI/Cards/login/login.pug
+include ../UI/footer/footer.pug 
+
 doctype html
 html(lang="en")
     head
@@ -7,13 +11,10 @@ html(lang="en")
         title Войти
     body 
         .signIn
-            include ../UI/header/header.pug
             +header({addClass:"signIn__header", name:""})
 
             main.signIn__body 
                 .signIn__container
-                    include ../UI/Cards/login/login.pug
                     +login({addClass:"signIn__login"})
-            
-            include ../UI/footer/footer.pug 
+                    
             +footer({addClass:"signIn__footer"})

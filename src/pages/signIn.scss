@@ -2,7 +2,7 @@
     &__body {
         width: 100%;
         height: 702px;
-        background: url(../img/backgroung/signIn_background.svg);
+        background: url(../img/backgroung/signIn_background.svg) bottom;
     }
 
     &__container {
@@ -10,7 +10,32 @@
         height: 100%;
         margin: 0 auto;
 
-        padding-left: 35%;
         padding-top: 172px;
+    }
+
+    &__login {
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1350px) {
+    .signIn {
+        &__body {
+            background-size: 100%;
+        }
+    }
+}
+
+@media (max-width: $break-point-2) {
+    .signIn {
+        &__body {
+            height: 500px;
+            background-size: auto 500px;
+        }
+
+        &__container {
+            height: 100%;
+            padding-top: 70px;
+        }
     }
 }
