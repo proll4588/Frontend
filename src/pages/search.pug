@@ -1,0 +1,47 @@
+include ../UI/header/header.pug
+include ../UI/footer/footer.pug
+
+include ../UI/filter-date-dropdown/filter-date-dropdown.pug
+include ../UI/dropdown-mini/dropdown-mini.pug
+include ../UI/checkbox/checkbox.pug
+include ../UI/dropdown/dropdown.pug
+include ../UI/expandable-checkbox-list/expandable-checkbox-list.pug
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Search room
+    body 
+        .search
+            +header({addClass:"search__header", name:""})
+
+            main.search__body
+                .search__container
+                    .search__content
+                        .search__param
+                            +filter-date-dropdown({addClass:"search__date-dropdown", head:"даты пребывания в отеле"})
+                            +dropdown({addClass:"search__dropdown", start:[0, 0, 0]})
+
+                            .search__checkboxes
+                                h3.search__checkboxes-head правила дома
+                                +checkbox({addClass:"search__checkbox", text:"Можно курить", type:"0", title:""})
+                                +checkbox({addClass:"search__checkbox", text:"Можно с питомцами", type:"0", title:""})
+                                +checkbox({addClass:"search__checkbox", text:"Можно пригласить гостей (до 10 человек)", type:"0", title:""})
+
+                            .search__rich-checkboxes
+                                h3.search__rich-checkbox-head доступность
+                                +checkbox({addClass:"search__rich-checkbox", text:"Ширина коридоров в номере не менее 91 см.", type:"rich", title:"Широкий коридор"})
+                                +checkbox({addClass:"search__rich-checkbox", text:"На 1 этаже вас встретит специалист  и проводит до номера.", type:"rich", title:"Помощник для инвалидов"})
+                                
+                            +dropdown-mini({addClass:"search__dropdown-mini"})
+
+                            +expandable-checkbox-list({addClass:"search__expandable-checkbox-list", head:"дополнительные удобства", texts:["Завтрак","Письменный стол","Стул для кормления","Кроватка","Телевизор","Шампунь"]})
+
+                        .search__result
+                
+
+            +footer({addClass:"search__footer"})
+            

@@ -1,0 +1,58 @@
+.search {
+    &__body {
+    }
+
+    &__container {
+        max-width: 1900px;
+        margin: 0 auto;
+
+        padding: 30px 10px 0 10px;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: start;
+        flex-direction: row;
+    }
+
+    &__param {
+        width: 266px;
+        flex-grow: 0;
+    }
+
+    &__result {
+        flex: 1 1 auto;
+    }
+
+    &__date-dropdown {
+        margin-bottom: 20px;
+    }
+
+    &__dropdown {
+        margin-bottom: 30px;
+    }
+
+    &__checkboxes {
+        margin-bottom: 30px;
+    }
+
+    &__rich-checkboxes {
+        margin-bottom: 30px;
+    }
+
+    &__dropdown-mini {
+        margin-bottom: 30px;
+    }
+
+    &__expandable-checkbox-list {
+        height: 200px;
+    }
+
+    &__rich-checkbox-head {
+        margin-bottom: 16px;
+    }
+
+    &__checkboxes-head {
+        margin-bottom: 16px;
+    }
+}
